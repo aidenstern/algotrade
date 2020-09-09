@@ -1,4 +1,4 @@
-# tda-algo
-TD Ameritrade algorithmic trading bot
+# algotrade
+algorithmic trading bot
 
 https://developer.tdameritrade.com/apis
