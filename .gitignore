@@ -1,2 +1,5 @@
 # ignore .idea project config
 .idea
+
+# api keys
+keys.py
