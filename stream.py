@@ -1,11 +1,19 @@
 import alpaca_trade_api as tradeapi
+import threading
 from keys import API_KEY, API_SECRET_KEY
 
-if __name__ == '__main__':
-    api = tradeapi.REST(API_KEY, API_SECRET_KEY, base_url='https://paper-api.alpaca.markets')
 
-    # Get daily price data for AAPL over the last 5 trading days.
-    barset = api.get_barset('AAPL', 'day', limit=5)
-    aapl_bars = barset['AAPL']
+conn = tradeapi.stream2.StreamConn(
+    key_id=API_KEY,
+    secret_key=API_SECRET_KEY,
+    base_url='https://paper-api.alpaca.markets',
+    data_url='wss://data.alpaca.markets/stream'
+)
 
-    print(aapl_bars)
+
+# @conn.on(r'.*')
+# async def on_data(conn, channel, data):
+#     print(data)
+
+conn.run(['account_updates'])
+
