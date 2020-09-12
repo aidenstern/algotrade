@@ -2,4 +2,10 @@
 .idea
 
 # api keys
-keys
+keys.py
+
+# unrelated files
+__pycache__
+*.pyc
+*~
+*.swp
